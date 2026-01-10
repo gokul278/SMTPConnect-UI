@@ -5,7 +5,7 @@ const HoverCard: React.FC = () => {
         <div
             className="
         relative flex items-center justify-center
-        w-[80%] p-9
+        w-[90%] sm:w-[80%] p-4 sm:p-9
         rounded-3xl
         overflow-hidden
         leading-[1.6]

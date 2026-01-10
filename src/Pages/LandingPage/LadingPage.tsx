@@ -4,7 +4,7 @@ import EmailServiceImg from "@/assets/Images/EmailService.png";
 import HowItWorks from "@/assets/Images/HowItWorks.svg";
 import { ArrowUpFromLine, FileSpreadsheet, FingerprintPattern, LayoutPanelTop, LayoutTemplate, LockKeyhole, Logs, Mail, MailPlus, Mails, Send, Settings2, SquarePen, Unplug } from 'lucide-react';
 import HoverCard from './HoverCard';
-import Button from '../Components/Button/Button';
+import Button from '../../Components/Button/Button';
 import HighlightBento from './HighlightBento';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
@@ -124,19 +124,19 @@ const LadingPage: React.FC<LadingPageProps> = () => {
 
     return (
         <div className="w-full pt-16">
-            <header className={`fixed top-0 left-0 right-0 flex justify-between w-full py-2 transition-colors duration-300 z-50 ${scrolled ? "bg-white/40 backdrop-blur-lg shadow-md" : "bg-transparent"}`}>
-                <div className='text-2xl px-4'>
+            <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full py-2 px-2 sm:px-0 transition-colors duration-300 z-50 ${scrolled ? "bg-white/40 backdrop-blur-lg shadow-md" : "bg-transparent"}`}>
+                <div className='text-lg sm:text-2xl px-1 sm:px-4'>
                     <span className='font-black text-[#a2a2a2]'>SMTP</span> Connect
                 </div>
-                <div className='px-4 flex gap-4'>
+                <div className='px-1 sm:px-4 flex gap-4'>
                     <Button
-                        className='w-30 font-black text-sm'
+                        className='sm:w-30 font-black text-sm'
                         label="Sign In"
                         onClick={() => CommingSoon()}
                         variant="outline"
                     />
                     <Button
-                        className='w-30 font-black text-sm'
+                        className='sm:w-30 font-black text-sm'
                         label="Sign Up"
                         onClick={() => CommingSoon()}
                         variant="primary"
@@ -144,11 +144,11 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 </div>
             </header>
             <div className='flex justify-center items-center'>
-                <img src={LandingImg} alt='logo' className='rounded-3xl pt-10 w-full xl:w-[80%]' />
+                <img src={LandingImg} alt='logo' className='rounded-3xl pt-3 sm:pt-10 w-full xl:w-[80%]' />
             </div>
-            <div className="flex flex-row-reverse justify-center gap-10 text-3xl py-5 ">
+            <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 text-lg sm:text-3xl py-5 px-4 sm:px-0">
                 <div className='flex flex-col items-center justify-center'>
-                    <div className='flex justify-center gap-5 font-bold items-center'>
+                    <div className='flex flex-wrap justify-center gap-5 font-bold items-center'>
                         <div className='flex justify-center items-center gap-2'>
                             <Unplug />Connect.
                         </div>
@@ -159,7 +159,7 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                             <Send /> Send.
                         </div>
                     </div>
-                    <div className='text-lg py-2 text-center'>
+                    <div className='text-sm mt-3 sm:mt-0 sm:text-lg py-2 text-center'>
                         👉 Use Gmail, Outlook, or any custom SMTP server
                     </div>
                 </div>
@@ -219,21 +219,21 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 </div>
             </div>
 
-            <div className='flex justify-center items-center py-10 mt-5'>
+            <div className='flex justify-center items-center py-10 mt-0 sm:mt-5'>
                 <HoverCard />
             </div>
 
-            <div className='flex flex-col gap-10 justify-center items-center py-10'>
-                <div className='text-4xl font-black'>
+            <div className='flex flex-col gap-10 justify-center items-center py-10 px-4 sm:px-0'>
+                <div className='text-4xl font-black text-center'>
                     Why Choose SMTP Connect?
                 </div>
-                <div className='text-lg underline'>
+                <div className='text-lg underline text-center'>
                     Most email tools force you into their ecosystem. SMTP Connect does not.
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-10 w-[80%]'>
                     {
                         ChooseSMTP.map((item) => (
-                            <div className='w-75 flex flex-col text-center justify-center items-center gap-5 text-lg font-semibold'>
+                            <div className='w-75 flex flex-col text-center justify-center items-center gap-5 text-sm sm:text-lg font-semibold'>
                                 <div className='p-5 bg-[#f1f1f1] hover:shadow-lg cursor-pointer rounded-full flex justify-center items-center w-20 h-20'>
                                     {item.Icon}
                                 </div>
@@ -245,11 +245,11 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 </div>
             </div>
 
-            <div className='flex flex-row gap-10 justify-center items-center py-10'>
-                <div className='w-[40%]'>
+            <div className='flex flex-col sm:flex-row gap-10 justify-center items-center py-10 px-4 sm:px-0'>
+                <div className='w-full sm:w-[40%]'>
                     <img src={EmailServiceImg} alt='logo' className='rounded-3xl' />
                 </div>
-                <div className='w-[40%] flex flex-col gap-5'>
+                <div className='w-full sm:w-[40%] flex flex-col gap-5'>
                     <div className='text-4xl font-black'>
                         Key Features
                     </div>
@@ -280,16 +280,16 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 </div>
             </div>
 
-            <div className='flex gap-30 justify-center items-center py-10'>
+            <div className='flex flex-col-reverse sm:flex-row gap-10 sm:gap-30 justify-center items-center py-10 px-4 sm:px-0'>
                 <ul
                     aria-label="Colored activity feed"
                     role="feed"
-                    className="relative w-[30%] flex flex-col gap-12 py-12 pl-8 before:absolute before:top-0 before:left-8 before:h-full before:-translate-x-1/2 before:border before:border-dashed before:border-slate-200 after:absolute after:top-6 after:left-8 after:bottom-6 after:-translate-x-1/2 after:border after:border-slate-200 "
+                    className="relative w-[90%] sm:w-[30%] flex flex-col gap-12 py-12 pl-8 before:absolute before:top-0 before:left-8 before:h-full before:-translate-x-1/2 before:border before:border-dashed before:border-slate-200 after:absolute after:top-6 after:left-8 after:bottom-6 after:-translate-x-1/2 after:border after:border-slate-200 "
                 >
                     {
                         howWorks.map((item) => (
                             <li role="article" className="relative pl-8 ">
-                                <span className={`absolute left-0 z-10 flex items-center justify-center w-10 h-10 text-white -translate-x-1/2 rounded-full bg-[${item.backgroundColor}] ring-2 ring-white `}>
+                                <span className={`absolute left-0 z-10 flex items-center justify-center w-10 h-10 text-white -translate-x-1/2 rounded-full bg-[#f8bc27] ring-2 ring-white `}>
                                     {item.logo}
                                 </span>
                                 <div className="flex flex-col flex-1 gap-0">
@@ -302,7 +302,7 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                         ))
                     }
                 </ul>
-                <div className='w-[25%] flex gap-10 flex-col justify-center items-center p-5 rounded-3xl'>
+                <div className='w-full sm:w-[25%] flex gap-10 flex-col justify-center items-center p-5 rounded-3xl'>
                     <div className='text-4xl font-black'>
                         How It Works
                     </div>
@@ -310,7 +310,7 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 </div>
             </div>
 
-            <div className='py-10  flex flex-col gap-5 justify-center items-center'>
+            <div className='py-10 flex flex-col gap-5 justify-center items-center'>
                 <div className='text-4xl font-black'>
                     Who Is It For?
                 </div>

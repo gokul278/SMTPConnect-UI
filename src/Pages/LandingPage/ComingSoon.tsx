@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import Button from "../Components/Button/Button";
+import Button from "../../Components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 export default function ComingSoon(): JSX.Element {
