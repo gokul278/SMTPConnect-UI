@@ -11,6 +11,8 @@ import ScrollToTop from "../../lib/ScrollToTop";
 import { AuthProvider } from "./AuthContent";
 import LadingPage from "../LandingPage/LadingPage";
 import ComingSoon from "../LandingPage/ComingSoon";
+import Signin from "../Signin/Signin";
+import Signup from "../Singup/Signup";
 
 export interface AppRoute {
     path?: string; // Made path optional
@@ -80,6 +82,8 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
                 <Routes>
                     <Route index element={<LadingPage />} />
                     <Route path="/commingsoon" index element={<ComingSoon />} />
+                    <Route path="/signin" index element={<Signin />} />
+                    <Route path="/signup" index element={<Signup />} />
                     {/* <Route path="/unauthorized" index element={<Unauthorized />} />
 
           <Route

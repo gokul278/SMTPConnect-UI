@@ -132,7 +132,7 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                     <Button
                         className='sm:w-30 font-black text-sm'
                         label="Sign In"
-                        onClick={() => CommingSoon()}
+                        onClick={() => { navigate("/signin") }}
                         variant="outline"
                     />
                     <Button
