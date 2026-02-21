@@ -1,7 +1,4 @@
-import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { decrypt } from "../../lib/Helper";
 
 export const RoleList = [
     { type: "user", id: 1 },
@@ -41,9 +38,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     const [role, setRoleState] = useState<Role>(null);
     const [user, setUser] = useState<UserProfile | null>(null);
     const [loading, setLoading] = useState(true);
-    const location = useLocation();
-
-    const navigate = useNavigate();
 
     const setRole = (newRole: Role) => {
         setRoleState(newRole);
