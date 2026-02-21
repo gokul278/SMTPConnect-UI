@@ -4,7 +4,7 @@ interface DashboardPagerProps {
 
 }
 
-const DashboardPager: React.FC<DashboardPagerProps> = () => {
+const DashboardPage: React.FC<DashboardPagerProps> = () => {
     return (
         <div>
             DashboardPager Component
@@ -12,4 +12,4 @@ const DashboardPager: React.FC<DashboardPagerProps> = () => {
     );
 };
 
-export default DashboardPager;
+export default DashboardPage;

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { decrypt } from "../../lib/Helper";
 
 export const RoleList = [
-    { type: "admin", id: 1 },
+    { type: "user", id: 1 },
 ] as const;
 
 export type Role = (typeof RoleList)[number] | null;
@@ -50,52 +50,58 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     };
 
     const refreshToken = async () => {
-        const token = localStorage.getItem("token");
+        // const token = localStorage.getItem("token");
 
-        try {
-            const res = await axios.get(
-                `${import.meta.env.VITE_API_URL}/v1/profile/user`,
-                {
-                    headers: {
-                        Authorization: token,
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
-            console.log(res);
+        // try {
+        //     const res = await axios.get(
+        //         `${import.meta.env.VITE_API_URL}/v1/profile/user`,
+        //         {
+        //             headers: {
+        //                 Authorization: token,
+        //                 "Content-Type": "multipart/form-data",
+        //             },
+        //         }
+        //     );
+        //     console.log(res);
 
-            if (
-                res.data.error == "Invalid token" ||
-                res.data.error == "Missing token"
-            ) {
-                localStorage.clear();
-                navigate("/");
-            } else {
-                const decryptData = decrypt(res.data.data, res.data.token);
-                console.log(decryptData);
-                const profile: UserProfile = decryptData.data;
-                setUser(profile);
-                localStorage.setItem("token", res.data.token);
+        //     if (
+        //         res.data.error == "Invalid token" ||
+        //         res.data.error == "Missing token"
+        //     ) {
+        //         localStorage.clear();
+        //         navigate("/");
+        //     } else {
+        //         const decryptData = decrypt(res.data.data, res.data.token);
+        //         console.log(decryptData);
+        //         const profile: UserProfile = decryptData.data;
+        //         setUser(profile);
+        //         localStorage.setItem("token", res.data.token);
 
-                const matchedRole =
-                    RoleList.find((r) => r.id === profile.refUserRTId) || null;
-                setRole(matchedRole);
+        //         const matchedRole =
+        //             RoleList.find((r) => r.id === profile.refUserRTId) || null;
+        //         setRole(matchedRole);
 
-                if (location.pathname === "/" || location.pathname === "/login") {
-                    const matchedRole =
-                        RoleList.find((r) => r.id === profile.refUserRTId) || null;
-                    // setTimeout(() => {
-                    navigate(`/${String(matchedRole?.type)}/`);
-                    // }, 1000);
-                }
-            }
-        } catch (error) {
-            console.error("Error fetching user profile:", error);
-            setUser(null);
-            setRole(null);
-        } finally {
-            setLoading(false);
-        }
+        //         if (location.pathname === "/" || location.pathname === "/login") {
+        //             const matchedRole =
+        //                 RoleList.find((r) => r.id === profile.refUserRTId) || null;
+        //             // setTimeout(() => {
+        //             navigate(`/${String(matchedRole?.type)}/`);
+        //             // }, 1000);
+        //         }
+        //     }
+        // } catch (error) {
+        //     console.error("Error fetching user profile:", error);
+        //     setUser(null);
+        //     setRole(null);
+        // } finally {
+        //     setLoading(false);
+        // }
+
+        const matchedRole =
+            RoleList.find((r) => r.id === 1) || null;
+        setRole(matchedRole);
+
+        setLoading(false);
     };
 
     // const logout = () => {

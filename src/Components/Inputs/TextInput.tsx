@@ -32,6 +32,12 @@ const TextInput: React.FC<TextInputProps> = ({
 }) => {
     const [showPassword, setShowPassword] = useState(false);
 
+    const handleWheel = (e: React.WheelEvent<HTMLInputElement>) => {
+        if (type === "number") {
+            (e.target as HTMLInputElement).blur();
+        }
+    };
+
     const isPassword = type === "password";
 
     return (
@@ -50,6 +56,7 @@ const TextInput: React.FC<TextInputProps> = ({
                 <input
                     id={id}
                     name={name}
+                    onWheel={handleWheel}
                     type={isPassword ? (showPassword ? "text" : "password") : type}
                     value={value}
                     onChange={onChange}

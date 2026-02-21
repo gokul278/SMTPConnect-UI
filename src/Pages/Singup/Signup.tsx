@@ -20,16 +20,16 @@ const Signup: React.FC<SigninProps> = () => {
                         <span className='font-black text-[#a2a2a2]'>SMTP</span> Connect
                     </div>
                     <div className='px-1 sm:px-4 mt-6'>
-                        <TextInput id='name' type='text' label='Name' />
+                        <TextInput id='name' type='text' label='Name' required />
                     </div>
                     <div className='px-1 sm:px-4 mt-6'>
-                        <TextInput id='email' type='email' label='Email' />
+                        <TextInput id='email' type='email' label='Email' required />
                     </div>
                     <div className='px-1 sm:px-4 mt-4'>
-                        <TextInput id='password' type='password' label='Password' />
+                        <TextInput id='password' type='password' label='Password' required />
                     </div>
                     <div className='px-1 sm:px-4 mt-4'>
-                        <TextInput id='confirmPassword' type='password' label='Confirm Password' />
+                        <TextInput id='confirmPassword' type='password' label='Confirm Password' required />
                     </div>
                     <div className='px-1 sm:px-4 mt-6'>
                         <Button className='w-10/10' label="Sign Up" />
