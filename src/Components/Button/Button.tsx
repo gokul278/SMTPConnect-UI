@@ -3,8 +3,8 @@ import React from "react";
 type ButtonVariant = "primary" | "secondary" | "outline";
 
 interface ButtonProps {
-    label: string; // REQUIRED
-    onClick: () => void; // REQUIRED
+    label: any; // REQUIRED
+    onClick?: () => void; // REQUIRED
     variant?: ButtonVariant;
     disabled?: boolean;
     type?: "button" | "submit" | "reset";
