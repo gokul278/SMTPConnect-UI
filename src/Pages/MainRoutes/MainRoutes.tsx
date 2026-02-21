@@ -11,6 +11,13 @@ import ScrollToTop from "../../lib/ScrollToTop";
 import { AuthProvider } from "./AuthContent";
 import LadingPage from "../LandingPage/LadingPage";
 import ComingSoon from "../LandingPage/ComingSoon";
+import Signin from "../Signin/Signin";
+import Signup from "../Singup/Signup";
+import DashboardPage from "../DashboardPage/DashboardPage";
+import MasterHeader from "../MasterHeader/MasterHeader";
+import SendMailHistoryPage from "../SendMailHistoryPage/SendMailHistoryPage";
+import ConfigurationPage from "../ConfigurationPage/ConfigurationPage";
+import SendMailPage from "../SendMailPage/SendMailPage";
 
 export interface AppRoute {
     path?: string; // Made path optional
@@ -24,11 +31,13 @@ export interface AppRoute {
 interface MainRoutesProps { }
 
 const MainRoutes: React.FC<MainRoutesProps> = () => {
-    // const adminRoutes: AppRoute[] = [
-    //     { index: true, element: <Navigate to="register" replace /> },
-    //     { path: "register", element: <RegisterStudent /> },
-    //     // { path: "mail", element: <AdminMail /> },
-    // ];
+    const userRoutes: AppRoute[] = [
+        { index: true, element: <Navigate to="dashboard" replace /> },
+        { path: "dashboard", element: <DashboardPage /> },
+        { path: "configuration", element: <ConfigurationPage /> },
+        { path: "send-mail", element: <SendMailPage /> },
+        { path: "mail-history", element: <SendMailHistoryPage /> },
+    ];
 
     const renderRoutes = (routes: AppRoute[]) => {
         return routes.map((route, index) => {
@@ -80,18 +89,20 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
                 <Routes>
                     <Route index element={<LadingPage />} />
                     <Route path="/commingsoon" index element={<ComingSoon />} />
-                    {/* <Route path="/unauthorized" index element={<Unauthorized />} />
+                    <Route path="/signin" index element={<Signin />} />
+                    <Route path="/signup" index element={<Signup />} />
+                    {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
 
-          <Route
-            path="/admin"
-            element={
-              <RoleProtectedRoute allowedRoles={["admin"]}>
-                <MasterHeader />
-              </RoleProtectedRoute>
-            }
-          >
-            {renderRoutes(adminRoutes)}
-          </Route> */}
+                    <Route
+                        path="/user"
+                        element={
+                            <RoleProtectedRoute allowedRoles={["user"]}>
+                                <MasterHeader />
+                            </RoleProtectedRoute>
+                        }
+                    >
+                        {renderRoutes(userRoutes)}
+                    </Route>
                 </Routes>
             </AuthProvider>
         </Router>
