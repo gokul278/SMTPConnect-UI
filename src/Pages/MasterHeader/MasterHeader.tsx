@@ -80,7 +80,7 @@ const MasterHeader: React.FC<MasterHeaderProps> = () => {
     const menus = role?.type ? roleMenus[role.type] || [] : [];
 
     return (
-        <div className="relative w-full h-screen overflow-auto px-4 lg:px-23">
+        <div className="relative w-full h-screen overflow-auto px-4 lg:pl-25">
             {/* Main Content */}
             <Outlet />
 
