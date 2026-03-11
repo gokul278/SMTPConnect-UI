@@ -36,7 +36,7 @@ const AppAccordion: React.FC<AppAccordionProps> = ({
     };
 
     return (
-        <div className="w-full space-y-2">
+        <div className="w-10/10 space-y-2">
             {items.map((item, index) => {
                 const isOpen = activeIndex.includes(index);
 
@@ -48,9 +48,9 @@ const AppAccordion: React.FC<AppAccordionProps> = ({
                         {/* Header */}
                         <button
                             onClick={() => toggleItem(index)}
-                            className="w-full flex items-center cursor-pointer justify-between p-4 text-left bg-white hover:bg-gray-50 transition"
+                            className="w-10/10 flex items-center cursor-pointer justify-between p-4 text-left bg-white hover:bg-gray-50 transition"
                         >
-                            <span>
+                            <span className="w-10/10">
                                 {item.header}
                             </span>
 
