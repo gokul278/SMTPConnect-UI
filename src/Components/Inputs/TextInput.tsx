@@ -62,13 +62,13 @@ const TextInput: React.FC<TextInputProps> = ({
                     onChange={onChange}
                     placeholder={placeholder}
                     disabled={disabled}
-                    className={`w-full rounded-lg border px-3 py-2 text-sm
-            outline-none transition
-            ${isPassword ? "pr-10" : ""}
+                    required={required}
+                    className={`trust-input 
+            ${isPassword ? "pr-12" : ""}
             ${error
-                            ? "border-red-500 focus:ring-2 focus:ring-red-300"
-                            : "border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200"}
-            ${disabled ? "bg-gray-100 cursor-not-allowed" : "bg-white"}
+                            ? "border-red-500 focus:ring-red-500/10"
+                            : "border-slate-200 focus:border-blue-500"}
+            ${disabled ? "bg-slate-50 cursor-not-allowed opacity-60" : ""}
             ${className}`}
                 />
 

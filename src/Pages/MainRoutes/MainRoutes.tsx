@@ -18,6 +18,8 @@ import MasterHeader from "../MasterHeader/MasterHeader";
 import SendMailHistoryPage from "../SendMailHistoryPage/SendMailHistoryPage";
 import ConfigurationPage from "../ConfigurationPage/ConfigurationPage";
 import SendMailPage from "../SendMailPage/SendMailPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface AppRoute {
     path?: string; // Made path optional
@@ -86,6 +88,7 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
         <Router>
             <ScrollToTop />
             <AuthProvider>
+                <ToastContainer position="top-right" autoClose={3000} />
                 <Routes>
                     <Route index element={<LadingPage />} />
                     <Route path="/commingsoon" index element={<ComingSoon />} />
