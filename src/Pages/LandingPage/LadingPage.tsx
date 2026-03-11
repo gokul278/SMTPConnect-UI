@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import LandingImg from "@/assets/Images/LandingImg.png"
 import EmailServiceImg from "@/assets/Images/EmailService.png";
 import HowItWorks from "@/assets/Images/HowItWorks.svg";
-import { ArrowUpFromLine, FileSpreadsheet, FingerprintPattern, LayoutPanelTop, LayoutTemplate, LockKeyhole, Logs, Mail, MailPlus, Mails, Send, Settings2, SquarePen, Unplug } from 'lucide-react';
-import HoverCard from './HoverCard';
+import { ArrowUpFromLine, FileSpreadsheet, FingerprintPattern, LayoutPanelTop, LayoutTemplate, LockKeyhole, Logs, Mail, MailPlus, Mails, Send, Settings2, ShieldCheck, SquarePen, Unplug } from 'lucide-react';
 import Button from '../../Components/Button/Button';
-import HighlightBento from './HighlightBento';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,11 +26,6 @@ const LadingPage: React.FC<LadingPageProps> = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-    const handleToggle = (index: number) => {
-        setActiveIndex(prev => (prev === index ? null : index));
-    };
 
     const ChooseSMTP = [
         {
@@ -118,204 +111,184 @@ const LadingPage: React.FC<LadingPageProps> = () => {
         },
     ]
 
-    const CommingSoon = () => {
-        navigate("/commingsoon");
-    }
+
 
     return (
-        <div className="w-full pt-16">
-            <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full py-2 px-2 sm:px-0 transition-colors duration-300 z-50 ${scrolled ? "bg-white/40 backdrop-blur-lg shadow-md" : "bg-transparent"}`}>
-                <div className='text-lg sm:text-2xl px-1 sm:px-4'>
-                    <span className='font-black text-[#a2a2a2]'>SMTP</span> Connect
+        <div className="w-full bg-mesh min-h-screen selection:bg-blue-100 selection:text-blue-900">
+            {/* Optimized Glass Header */}
+            <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full py-4 px-6 md:px-12 transition-all duration-300 z-50 ${scrolled ? "glass-effect shadow-lg py-3" : "bg-transparent"}`}>
+                <div className='flex items-center gap-2'>
+                    <div className="p-2 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/20">
+                        <Mail size={22} />
+                    </div>
+                    <div className='text-xl md:text-2xl tracking-tighter'>
+                        <span className='font-black text-slate-900'>SMTP</span>
+                        <span className="font-medium text-slate-500">Connect</span>
+                    </div>
                 </div>
-                <div className='px-1 sm:px-4 flex gap-4'>
+                <div className='flex gap-3 md:gap-6 items-center'>
+                    <button
+                        onClick={() => navigate("/signin")}
+                        className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors hidden sm:block"
+                    >
+                        Sign In
+                    </button>
                     <Button
-                        className='sm:w-30 font-black text-sm'
-                        label="Sign In"
-                        onClick={() => { navigate("/signin") }}
-                        variant="outline"
-                    />
-                    <Button
-                        className='sm:w-30 font-black text-sm'
-                        label="Sign Up"
-                        onClick={() => CommingSoon()}
+                        className='px-6 py-2.5 font-bold text-sm shadow-xl shadow-blue-500/20'
+                        label="Get Started"
+                        onClick={() => navigate("/signup")}
                         variant="primary"
                     />
                 </div>
             </header>
-            <div className='flex justify-center items-center'>
-                <img src={LandingImg} alt='logo' className='rounded-3xl pt-3 sm:pt-10 w-full xl:w-[80%]' />
-            </div>
-            <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 text-lg sm:text-3xl py-5 px-4 sm:px-0">
-                <div className='flex flex-col items-center justify-center'>
-                    <div className='flex flex-wrap justify-center gap-5 font-bold items-center'>
-                        <div className='flex justify-center items-center gap-2'>
-                            <Unplug />Connect.
-                        </div>
-                        <div className='flex justify-center items-center gap-2'>
-                            <Settings2 />Customize.
-                        </div>
-                        <div className='flex justify-center items-center gap-2'>
-                            <Send /> Send.
-                        </div>
-                    </div>
-                    <div className='text-sm mt-3 sm:mt-0 sm:text-lg py-2 text-center'>
-                        👉 Use Gmail, Outlook, or any custom SMTP server
-                    </div>
-                </div>
 
-                <div
-                    className="
-                        w-75 h-auto
-                        -translate-x-1.5 -translate-y-1.5
-                        bg-[#04387a]
-                        border-[3px] border-black
-                        shadow-[12px_12px_0_#000]
-                        overflow-hidden
-                        transition-all duration-300
-                        hover:-translate-x-1.5
-                    "
-                >
-                    {/* Header */}
-                    <div
-                        className="
-                            w-full h-8
-                            bg-white
-                            px-3 py-1.25
-                            text-black
-                            text-sm font-black
-                            border-b-[3px] border-black
-                        "
-                    >
-                        Window
+            {/* Premium Hero Section */}
+            <section className="pt-32 pb-20 px-6 md:px-12 overflow-hidden relative">
+                <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-widest mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <ShieldCheck size={14} /> Powering 10k+ Reliable Deliveries
                     </div>
-
-                    {/* Content */}
-                    <div className="p-3 text-lg text-[#ffffff] font-semibold">
-                        Send personalized bulk emails using your own SMTP credentials.
-                        No third-party lock-ins. No forced branding. Just complete control over your emails.
-                        <br />
-
-                        {/* Button */}
-                        {/* <button
-                            className="
-                                mt-3 px-3 py-1
-                                border-[3px] border-black
-                                shadow-[3px_3px_0_#000]
-                                font-extrabold
-                                bg-[#8a8a87]
-                                cursor-pointer
-                                transition-all duration-300
-                                hover:translate-x-[1.5px] hover:translate-y-[1.5px]
-                                hover:shadow-[1.5px_1.5px_0_#000]
-                                hover:bg-sky-400
-                                active:translate-x-[3px] active:translate-y-[3px]
-                                active:shadow-none
-                            "
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-gradient mb-8 leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-1000">
+                        Own Your <span className="text-blue-600">Emails.</span> <br />
+                        Skip The Limits.
+                    </h1>
+                    <p className="max-w-2xl text-lg md:text-xl text-slate-500 font-medium leading-relaxed mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                        The world's most flexible bulk email engine. Bring your own SMTP (Gmail, Outlook, or Custom) and send unlimited campaigns with zero vendor lock-in.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 mb-20 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+                        <Button
+                            className="px-10 py-4 text-base font-black shadow-2xl shadow-blue-500/30"
+                            label="Start Sending Free"
+                            onClick={() => navigate("/signup")}
+                        />
+                        <button
+                            className="px-10 py-4 text-base font-black text-slate-700 hover:bg-slate-100 rounded-2xl transition-all"
+                            onClick={() => {
+                                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
-                            Button
-                        </button> */}
+                            Explore Features
+                        </button>
+                    </div>
+
+                    {/* Hero Image / Card */}
+                    <div className="relative w-full max-w-5xl mx-auto group animate-in zoom-in fade-in duration-1000 delay-300">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 rounded-[2.5rem] blur-2xl group-hover:opacity-75 transition-opacity"></div>
+                        <div className="relative glass-effect p-2 rounded-[2rem] border-slate-200/50 shadow-premium overflow-hidden">
+                            <img
+                                src={LandingImg}
+                                alt="SMTPConnect Interface"
+                                className="w-full h-auto rounded-[1.8rem] shadow-sm transform group-hover:scale-[1.01] transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className='flex justify-center items-center py-10 mt-0 sm:mt-5'>
-                <HoverCard />
-            </div>
+                {/* Decorative Elements */}
+                <div className="absolute top-1/4 -left-20 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-400/5 rounded-full blur-3xl"></div>
+            </section>
 
-            <div className='flex flex-col gap-10 justify-center items-center py-10 px-4 sm:px-0'>
-                <div className='text-4xl font-black text-center'>
-                    Why Choose SMTP Connect?
-                </div>
-                <div className='text-lg underline text-center'>
-                    Most email tools force you into their ecosystem. SMTP Connect does not.
-                </div>
-                <div className='flex flex-wrap justify-center items-center gap-10 w-[80%]'>
-                    {
-                        ChooseSMTP.map((item) => (
-                            <div className='w-75 flex flex-col text-center justify-center items-center gap-5 text-sm sm:text-lg font-semibold'>
-                                <div className='p-5 bg-[#f1f1f1] hover:shadow-lg cursor-pointer rounded-full flex justify-center items-center w-20 h-20'>
+            {/* Why Choose Section */}
+            <section id="features" className="py-32 px-6 md:px-12 bg-white relative">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Freedom From Platforms</h2>
+                        <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
+                            Most email tools force you into their expensive ecosystems. SMTP Connect is designed for power users who want control.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {ChooseSMTP.map((item, idx) => (
+                            <div key={idx} className="premium-card p-8 group hover:border-blue-200">
+                                <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-premium">
                                     {item.Icon}
                                 </div>
-                                {item.label}
+                                <h3 className="text-xl font-black text-slate-800 mb-3">{item.label}</h3>
+                                <p className="text-slate-500 font-medium leading-relaxed italic text-sm">
+                                    "Industry standard protocols meet elite engineering."
+                                </p>
                             </div>
-                        )
-                        )
-                    }
-                </div>
-            </div>
-
-            <div className='flex flex-col sm:flex-row gap-10 justify-center items-center py-10 px-4 sm:px-0'>
-                <div className='w-full sm:w-[40%]'>
-                    <img src={EmailServiceImg} alt='logo' className='rounded-3xl' />
-                </div>
-                <div className='w-full sm:w-[40%] flex flex-col gap-5'>
-                    <div className='text-4xl font-black'>
-                        Key Features
+                        ))}
                     </div>
-                    <section className="w-full bg-white divide-y rounded shadow-md divide-slate-200 shadow-slate-200">
+                </div>
+            </section>
 
-                        {
-                            keyfeatures.map((feature, index) => (
-                                <details
-                                    className="p-4 group"
-                                    open={activeIndex === index}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleToggle(index);
-                                    }}
-                                >
-                                    <summary className="relative flex items-center cursor-pointer list-none gap-4 pr-8 font-medium text-slate-700 [&::-webkit-details-marker]:hidden">
+            {/* Feature Bento / Highlight Section */}
+            <section className="py-32 px-6 md:px-12 bg-slate-50">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
+                            Engineered for <br /><span className="text-blue-600">Unlimited</span> Potential.
+                        </h2>
+                        <div className="space-y-6">
+                            {keyfeatures.map((feature, idx) => (
+                                <div key={idx} className="flex gap-4 items-start p-4 hover:bg-white hover:shadow-md rounded-2xl transition-all border border-transparent hover:border-slate-100">
+                                    <div className="p-2.5 bg-blue-100 rounded-xl text-blue-600 mt-1">
                                         {feature.logo}
-                                        {feature.title}
-                                        <span className="absolute right-0 transition-transform group-open:rotate-45">+</span>
-                                    </summary>
-                                    <p className="mt-4 text-slate-500">
-                                        {feature.description}
-                                    </p>
-                                </details>
-                            ))
-                        }
-                    </section>
-                </div>
-            </div>
-
-            <div className='flex flex-col-reverse sm:flex-row gap-10 sm:gap-30 justify-center items-center py-10 px-4 sm:px-0'>
-                <ul
-                    aria-label="Colored activity feed"
-                    role="feed"
-                    className="relative w-[90%] sm:w-[30%] flex flex-col gap-12 py-12 pl-8 before:absolute before:top-0 before:left-8 before:h-full before:-translate-x-1/2 before:border before:border-dashed before:border-slate-200 after:absolute after:top-6 after:left-8 after:bottom-6 after:-translate-x-1/2 after:border after:border-slate-200 "
-                >
-                    {
-                        howWorks.map((item) => (
-                            <li role="article" className="relative pl-8 ">
-                                <span className={`absolute left-0 z-10 flex items-center justify-center w-10 h-10 text-white -translate-x-1/2 rounded-full bg-[#f8bc27] ring-2 ring-white `}>
-                                    {item.logo}
-                                </span>
-                                <div className="flex flex-col flex-1 gap-0">
-                                    <h4 className="text-base font-medium text-slate-700">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-sm text-slate-500">{item.description}</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-black text-slate-800 mb-1">{feature.title}</h4>
+                                        <p className="text-sm text-slate-500 font-medium">{feature.description}</p>
+                                    </div>
                                 </div>
-                            </li>
-                        ))
-                    }
-                </ul>
-                <div className='w-full sm:w-[25%] flex gap-10 flex-col justify-center items-center p-5 rounded-3xl'>
-                    <div className='text-4xl font-black'>
-                        How It Works
+                            ))}
+                        </div>
                     </div>
-                    <img src={HowItWorks} alt='logo' className='w-full' />
+                    <div className="relative lg:mt-0">
+                        <div className="absolute -inset-10 bg-blue-500/5 rounded-full blur-3xl"></div>
+                        <img src={EmailServiceImg} alt="Key Features" className="relative w-full rounded-3xl shadow-premium border border-white" />
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div className='py-10 flex flex-col gap-5 justify-center items-center'>
-                <div className='text-4xl font-black'>
-                    Who Is It For?
+            {/* How It Works Section */}
+            <section className="py-32 px-6 md:px-12 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+                    <div className="lg:w-1/2">
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-12">The 4-Step <br />Blueprint</h2>
+                        <div className="space-y-12 relative before:absolute before:left-6 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100 before:border-none">
+                            {howWorks.map((item, idx) => (
+                                <div key={idx} className="relative pl-16 group">
+                                    <div
+                                        className="absolute left-0 top-0 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg transition-premium group-hover:scale-110 z-10"
+                                        style={{ backgroundColor: item.backgroundColor, boxShadow: `0 10px 15px -3px ${item.backgroundColor}44` }}
+                                    >
+                                        {item.logo}
+                                    </div>
+                                    <h4 className="text-xl font-black text-slate-800 mb-2">{item.title}</h4>
+                                    <p className="text-slate-500 font-medium max-w-md">{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="lg:w-1/2 p-8 bg-slate-50 rounded-[3rem] border border-slate-100 relative group">
+                        <div className="absolute -inset-4 bg-white/50 backdrop-blur-3xl rounded-[3.5rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <img src={HowItWorks} alt="How It Works" className="relative w-full transform group-hover:rotate-1 transition-transform" />
+                    </div>
                 </div>
-                <HighlightBento />
-            </div>
+            </section>
+
+            {/* Final CTA Module */}
+            <section className="py-32 px-6 md:px-12">
+                <div className="max-w-5xl mx-auto glass-effect bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-blue-500/20">
+                    <div className="absolute top-0 right-0 p-20 opacity-10 text-white">
+                        <Mails size={240} />
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 relative z-10">Ready to break the <br />limits?</h2>
+                    <p className="text-blue-100 text-lg md:text-xl font-medium mb-12 relative z-10 max-w-2xl mx-auto">
+                        Join developers and marketers who have already taken control of their email delivery infrastructure. No hidden fees, no lock-in.
+                    </p>
+                    <div className="relative z-10">
+                        <Button
+                            className="bg-white text-blue-600 hover:bg-blue-50 px-12 py-5 text-lg font-black shadow-xl"
+                            label="Launch Your First Campaign"
+                            onClick={() => navigate("/signup")}
+                        />
+                    </div>
+                </div>
+            </section>
 
             <Footer />
         </div>
