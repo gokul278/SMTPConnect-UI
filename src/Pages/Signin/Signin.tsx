@@ -124,7 +124,7 @@ const Signin: React.FC<SigninProps> = () => {
                         <div className="space-y-2">
                             <div className="flex justify-between items-center">
                                 <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Password</label>
-                                <button type="button" className="text-xs font-black text-blue-600 hover:text-blue-700 uppercase tracking-widest">Forgot?</button>
+                                {/* <button type="button" className="text-xs font-black text-blue-600 hover:text-blue-700 uppercase tracking-widest">Forgot?</button> */}
                             </div>
                             <TextInput
                                 id='password'

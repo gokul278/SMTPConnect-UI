@@ -15,18 +15,19 @@ type Props = {
   value: string;
   onChange: (val: string) => void;
   variables: string[];
+  minimal?: boolean;
 };
 
-const MentionEditor: React.FC<Props> = ({ value, onChange, variables }) => {
+const MentionEditor: React.FC<Props> = ({ value, onChange, variables, minimal = false }) => {
 
   const mentionValues = useMemo(() => {
     return variables
-      .filter(v => v.trim() !== "")
+      .filter(v => v && v.trim() !== "")
       .map(v => ({ id: v, value: v }));
   }, [variables]);
 
   const modules = useMemo(() => ({
-    toolbar: [
+    toolbar: minimal ? false : [
       ['bold', 'italic', 'underline'],
       [{ list: 'ordered' }, { list: 'bullet' }],
       ['clean']
@@ -45,17 +46,33 @@ const MentionEditor: React.FC<Props> = ({ value, onChange, variables }) => {
         }
       },
     },
-  }), [mentionValues]);
+  }), [mentionValues, minimal]);
 
   return (
-    <ReactQuill
-      theme="snow"
-      value={value}
-      onChange={onChange}
-      modules={modules}
-      placeholder="Type @ to insert column names..."
-      className="min-h-[120px]"
-    />
+    <div className={`mention-editor-outer ${minimal ? 'editor-minimal' : ''}`}>
+        <ReactQuill
+        theme="snow"
+        value={value}
+        onChange={onChange}
+        modules={modules}
+        placeholder={minimal ? "Type @ to insert variables..." : "Type @ to insert column names..."}
+        className={minimal ? "ql-minimal-height" : "min-h-[120px]"}
+        />
+        <style>{`
+            .editor-minimal .ql-container.ql-snow {
+                border-radius: 0.75rem !important;
+                border: 1px solid #e2e8f0 !important;
+                background: white !important;
+            }
+            .editor-minimal .ql-editor {
+                min-height: 46px !important;
+                padding: 10px 14px !important;
+                font-size: 0.875rem !important;
+            }
+            .editor-minimal .ql-editor p { margin: 0 !important; }
+            .ql-minimal-height { max-height: 100px; overflow-y: auto; }
+        `}</style>
+    </div>
   );
 };
 
