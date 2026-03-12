@@ -20,6 +20,7 @@ import ConfigurationPage from "../ConfigurationPage/ConfigurationPage";
 import SendMailPage from "../SendMailPage/SendMailPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MailQueueProvider } from "@/Context/MailQueueContext";
 
 export interface AppRoute {
     path?: string; // Made path optional
@@ -88,25 +89,27 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
         <Router>
             <ScrollToTop />
             <AuthProvider>
-                <ToastContainer position="top-right" autoClose={3000} />
-                <Routes>
-                    <Route index element={<LadingPage />} />
-                    <Route path="/commingsoon" index element={<ComingSoon />} />
-                    <Route path="/signin" index element={<Signin />} />
-                    <Route path="/signup" index element={<Signup />} />
-                    {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
+                <MailQueueProvider>
+                    <ToastContainer position="top-right" autoClose={3000} />
+                    <Routes>
+                        <Route index element={<LadingPage />} />
+                        <Route path="/commingsoon" index element={<ComingSoon />} />
+                        <Route path="/signin" index element={<Signin />} />
+                        <Route path="/signup" index element={<Signup />} />
+                        {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
 
-                    <Route
-                        path="/user"
-                        element={
-                            <RoleProtectedRoute allowedRoles={["user"]}>
-                                <MasterHeader />
-                            </RoleProtectedRoute>
-                        }
-                    >
-                        {renderRoutes(userRoutes)}
-                    </Route>
-                </Routes>
+                        <Route
+                            path="/user"
+                            element={
+                                <RoleProtectedRoute allowedRoles={["user"]}>
+                                    <MasterHeader />
+                                </RoleProtectedRoute>
+                            }
+                        >
+                            {renderRoutes(userRoutes)}
+                        </Route>
+                    </Routes>
+                </MailQueueProvider>
             </AuthProvider>
         </Router>
     );
