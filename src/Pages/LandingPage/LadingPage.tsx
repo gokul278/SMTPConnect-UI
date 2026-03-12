@@ -129,12 +129,12 @@ const LadingPage: React.FC<LadingPageProps> = () => {
                 <div className='flex gap-3 md:gap-6 items-center'>
                     <button
                         onClick={() => navigate("/signin")}
-                        className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors hidden sm:block"
+                        className="text-sm cursor-pointer font-bold text-slate-600 hover:text-blue-600 transition-colors hidden sm:block"
                     >
                         Sign In
                     </button>
                     <Button
-                        className='px-6 py-2.5 font-bold text-sm shadow-xl shadow-blue-500/20'
+                        className='px-6 py-2.5 cursor-pointer font-bold text-sm shadow-xl shadow-blue-500/20'
                         label="Get Started"
                         onClick={() => navigate("/signup")}
                         variant="primary"
@@ -271,21 +271,35 @@ const LadingPage: React.FC<LadingPageProps> = () => {
             </section>
 
             {/* Final CTA Module */}
-            <section className="py-32 px-6 md:px-12">
-                <div className="max-w-5xl mx-auto glass-effect bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-blue-500/20">
-                    <div className="absolute top-0 right-0 p-20 opacity-10 text-white">
-                        <Mails size={240} />
+            <section className="py-32 px-6 md:px-12 relative overflow-hidden">
+                <div className="max-w-5xl mx-auto rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-blue-900/20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 border border-blue-500/30">
+                    {/* Decorative Background Elements */}
+                    <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/10 rounded-full blur-3xl mix-blend-overlay"></div>
+                        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-400/20 rounded-full blur-3xl mix-blend-overlay"></div>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 relative z-10">Ready to break the <br />limits?</h2>
-                    <p className="text-blue-100 text-lg md:text-xl font-medium mb-12 relative z-10 max-w-2xl mx-auto">
-                        Join developers and marketers who have already taken control of their email delivery infrastructure. No hidden fees, no lock-in.
-                    </p>
-                    <div className="relative z-10">
-                        <Button
-                            className="bg-white text-blue-600 hover:bg-blue-50 px-12 py-5 text-lg font-black shadow-xl"
-                            label="Launch Your First Campaign"
+                    
+                    <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-12 opacity-10 text-white pointer-events-none">
+                        <Mails size={300} strokeWidth={1} />
+                    </div>
+                    
+                    <div className="relative z-10 flex flex-col items-center">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+                            Ready to break <br className="hidden md:block"/> the limits?
+                        </h2>
+                        <p className="text-blue-100 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+                            Join developers and marketers who have already taken control of their email delivery infrastructure. No hidden fees, no lock-in.
+                        </p>
+                        
+                        <button
                             onClick={() => navigate("/signup")}
-                        />
+                            className="group relative px-8 py-4 bg-white text-blue-700 rounded-2xl font-black text-lg transition-all hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/30 overflow-hidden flex items-center gap-3 cursor-pointer"
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                Launch Your First Campaign <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </span>
+                            <div className="absolute inset-0 bg-blue-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        </button>
                     </div>
                 </div>
             </section>

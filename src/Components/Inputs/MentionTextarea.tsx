@@ -30,37 +30,69 @@ const MentionTextarea: React.FC<Props> = ({
             )}
 
             <div
-                className={`w-full rounded-lg border bg-white transition
+                className={`w-full rounded-xl border bg-white transition
         ${error
                         ? "border-red-500 focus-within:ring-2 focus-within:ring-red-300"
-                        : "border-gray-300 focus-within:border-gray-500 focus-within:ring-2 focus-within:ring-gray-200"
+                        : "border-slate-200 focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100"
                     }`}
             >
-                {/* Top Hint */}
-                <div className="px-3 py-2 border-b text-xs text-gray-500">
-                    Type <b>@</b> to insert variables
-                </div>
-
-                {/* Textarea */}
-                <div className="px-3 py-2">
+                <div className="relative">
+                    <style>{`
+                        .mention-input-custom textarea {
+                            color: black !important;
+                            caret-color: #0f172a !important;
+                        }
+                        .mention-input-custom textarea::placeholder {
+                            color: #94a3b8 !important; 
+                        }
+                    `}</style>
                     <MentionsInput
                         value={value}
                         onChange={(e) => onChange(e.target.value)}
-                        placeholder="Write your email template..."
-                        className="w-full text-sm outline-none"
+                        placeholder="Type @ to insert variables..."
+                        className="w-full text-sm outline-none mention-input-custom"
                         style={{
                             control: {
-                                backgroundColor: "transparent",
-                                fontSize: 14,
-                                minHeight: "120px",
+                                backgroundColor: ("transparent"),
+                                fontSize: "0.875rem",
+                                fontWeight: "normal",
                             },
                             input: {
                                 margin: 0,
-                                minHeight: "120px",
+                                padding: "10px 14px",
+                                minHeight: "46px",
                                 outline: "none",
+                                border: "none",
+                                lineHeight: "1.5rem",
+                                fontFamily: "inherit",
+                                boxSizing: "border-box",
                             },
                             highlighter: {
+                                padding: "10px 14px",
                                 overflow: "hidden",
+                                lineHeight: "1.5rem",
+                                fontFamily: "inherit",
+                                boxSizing: "border-box",
+                                color: "#334155", // Explicitly set text color so we can read what we type
+                            },
+
+
+                            suggestions: {
+                                list: {
+                                    backgroundColor: 'white',
+                                    border: '1px solid #e2e8f0',
+                                    borderRadius: '0.75rem',
+                                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                                    marginTop: '8px',
+                                    overflow: 'hidden',
+                                    zIndex: 50,
+                                },
+                                item: {
+                                    padding: '8px 12px',
+                                    fontSize: '0.875rem',
+                                    color: '#475569',
+                                    borderBottom: '1px solid #f8fafc',
+                                },
                             },
                         }}
                     >
@@ -70,11 +102,11 @@ const MentionTextarea: React.FC<Props> = ({
                             markup="{{__id__}}"
                             displayTransform={(id) => `@${id}`}
                             style={{
-                                backgroundColor: "#afd2ff",
-                                color: "#000",
-                                // padding: "2px 6px",
-                                borderRadius: "6px",
-                                // fontWeight: ,
+                                backgroundColor: "#d3e1eb", // blue-50
+                                color: "transparent", // blue-600
+                                borderRadius: "0.375rem",
+                                borderColor: "#bfdbfe",
+                                fontWeight: 600,
                             }}
                         />
                     </MentionsInput>

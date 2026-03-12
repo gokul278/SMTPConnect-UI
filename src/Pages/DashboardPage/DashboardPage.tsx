@@ -46,13 +46,18 @@ const DashboardPage: React.FC = () => {
 
     if (!stats) return null;
 
+    const calculatePercentage = (part: number, total: number) => {
+        if (total === 0) return '0%';
+        return ((part / total) * 100).toFixed(1) + '%';
+    };
+
     const cards = [
         {
             title: 'Total Emails',
             value: stats.totalEmails.toLocaleString(),
             icon: <Mail className="text-blue-600" />,
             bgColor: 'bg-blue-50',
-            trend: '+12%',
+            trend: 'Volume',
             trendUp: true
         },
         {
@@ -60,7 +65,7 @@ const DashboardPage: React.FC = () => {
             value: stats.sentEmails.toLocaleString(),
             icon: <CheckCircle className="text-green-600" />,
             bgColor: 'bg-green-50',
-            trend: '99.2%',
+            trend: calculatePercentage(stats.sentEmails, stats.totalEmails),
             trendUp: true
         },
         {
@@ -68,7 +73,7 @@ const DashboardPage: React.FC = () => {
             value: stats.failedEmails.toLocaleString(),
             icon: <XCircle className="text-red-600" />,
             bgColor: 'bg-red-50',
-            trend: '-2%',
+            trend: calculatePercentage(stats.failedEmails, stats.totalEmails),
             trendUp: false
         },
         {
@@ -76,7 +81,7 @@ const DashboardPage: React.FC = () => {
             value: stats.activeConfigs.toString(),
             icon: <ShieldCheck className="text-purple-600" />,
             bgColor: 'bg-purple-50',
-            trend: 'Stable',
+            trend: 'Active',
             trendUp: true
         }
     ];
