@@ -1,5 +1,5 @@
 {
-  "name": "smtpconnect",
+  "name": "mailstitch",
   "private": true,
   "version": "1.1.0",
   "type": "module",

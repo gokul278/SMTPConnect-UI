@@ -33,7 +33,7 @@ const HoverCard: React.FC = () => {
             group-hover:text-white
           "
                 >
-                    What is SMTP Connect?
+                    What is MailStitch?
                 </p>
 
                 <p
@@ -44,10 +44,10 @@ const HoverCard: React.FC = () => {
             group-hover:text-white
           "
                 >
-                    SMTP Connect is a lightweight email automation platform that allows you to create dynamic email templates and send personalized emails to multiple recipients using your own email server.
+                    MailStitch is a lightweight email automation platform that allows you to create dynamic email templates and send personalized emails to multiple recipients using your own email server.
                     <br />
                     <br />
-                    Whether you’re a developer, business, or organization — SMTP Connect gives you full ownership of your email communication.
+                    Whether you’re a developer, business, or organization — MailStitch gives you full ownership of your email communication.
                 </p>
             </div>
         </div>

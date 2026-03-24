@@ -1,9 +1,11 @@
 import Button from '@/Components/Button/Button';
 import TextInput from '@/Components/Inputs/TextInput';
 import { SignupService } from '@/Service/SignupService';
+import WhiteLogo from "@/assets/LOGO/WHITE-ICON-LOGO.png";
 import { Loader2, Mail, ShieldCheck, AlertCircle, CheckCircle } from 'lucide-react';
 import React from 'react';
 import { useNavigate } from 'react-router';
+import BlueLOGO from "@/assets/LOGO/BLUE_ICON-LOGO.png";
 
 interface SigninProps {
 
@@ -83,17 +85,17 @@ const Signup: React.FC<SigninProps> = () => {
             <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 glass-effect rounded-[2.5rem] shadow-premium overflow-hidden border-slate-200/50 animate-in fade-in zoom-in duration-700">
 
                 {/* Visual Side */}
-                <div className="hidden lg:flex flex-col justify-between p-12 bg-blue-600 relative overflow-hidden">
+                <div className="hidden lg:flex flex-col justify-around p-12 bg-blue-600 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-20 opacity-10 text-white rotate-12">
                         <Mail size={300} />
                     </div>
 
                     <div className="relative z-10">
-                        <div className='text-3xl font-black text-white flex items-center gap-2 mb-20'>
-                            <div className="p-2 bg-white/20 backdrop-blur-lg rounded-xl">
-                                <Mail size={24} />
+                        <div className='text-3xl font-black text-white flex items-center justify-center gap-2 mb-1'>
+                            <div className="flex items-center justify-center">
+                                <img src={WhiteLogo} alt="Logo" className="h-50 object-contain" />
                             </div>
-                            SMTP <span className="font-light opacity-80">Connect</span>
+                            {/* Mail <span className="font-light opacity-80">Stitch</span> */}
                         </div>
 
                         <h2 className="text-4xl font-black text-white leading-tight mb-6">
@@ -102,8 +104,8 @@ const Signup: React.FC<SigninProps> = () => {
                         <p className="text-blue-100 text-lg font-medium leading-relaxed max-w-sm">
                             Create your account and unlock the full potential of your own delivery infrastructure.
                         </p>
-                    </div>
 
+                    </div>
                     <div className="relative z-10 flex flex-col gap-6">
                         <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
                             <div className="p-2 bg-blue-500 rounded-lg text-white">
@@ -120,11 +122,10 @@ const Signup: React.FC<SigninProps> = () => {
                 {/* Form Side */}
                 <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white/40 backdrop-blur-xl">
                     <div className="mb-10 lg:hidden">
-                        <div className='text-2xl font-black text-slate-800 flex items-center gap-2'>
-                            <div className="p-2 bg-blue-600 rounded-xl text-white">
-                                <Mail size={20} />
+                        <div className='flex items-center justify-center font-black text-slate-800 gap-2'>
+                            <div className="flex items-center justify-center">
+                                <img src={BlueLOGO} alt="Logo" className="h-40 object-contain" />
                             </div>
-                            SMTP Connect
                         </div>
                     </div>
 
