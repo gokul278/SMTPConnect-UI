@@ -268,8 +268,8 @@ const ConfigurationPage: React.FC = () => {
         <div className='min-h-[56px] flex justify-between items-center mb-4 px-1 md:px-0'>
           <div className='flex items-center gap-2 sm:gap-3'>
             <h1 className='text-lg sm:text-xl md:text-3xl font-black text-slate-800'>Configurations</h1>
-            <div className="p-1.5 sm:p-2 bg-slate-100 rounded-lg text-slate-600">
-              <Cog size={16} className='animate-spin-slow sm:w-5 sm:h-5' />
+            <div className="mt-2 rounded-xl text-slate-600">
+              <Cog size={20} className='animate-spin-slow' />
             </div>
           </div>
           <Button onClick={() => setNewOpen(true)} label={<><Plus size={16} /> <span className="hidden sm:inline">Add Account</span><span className="sm:hidden">Add</span></>} variant='primary' className='shadow-blue-900/10 text-xs lg:text-base' />
@@ -317,7 +317,7 @@ const ConfigurationPage: React.FC = () => {
           </div>
         )}
 
-        <div className='h-[90vh] pb-32 lg:pb-20 overflow-auto'>
+        <div className='h-[80vh] pb-32 lg:pb-20 overflow-auto'>
           {loading ? (
             <div className='flex flex-col justify-center items-center h-64 gap-3'>
               <Loader2 className='animate-spin text-[#04387a]' size={48} />

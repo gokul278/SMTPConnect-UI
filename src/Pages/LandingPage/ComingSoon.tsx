@@ -38,7 +38,7 @@ export default function ComingSoon(): JSX.Element {
 
                 {/* Footer text */}
                 <p className="text-xs text-slate-500 dark:text-slate-500">
-                    © 2026 <span className="font-medium">SMTP Connect</span>
+                    © 2026 <span className="font-medium">MailStitch</span>
                     <br />
                     Built for control, privacy, and flexibility.
                 </p>

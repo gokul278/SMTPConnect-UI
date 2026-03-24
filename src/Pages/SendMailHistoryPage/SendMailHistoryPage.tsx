@@ -140,14 +140,14 @@ const SendMailHistoryPage: React.FC = () => {
           <div>
             <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-2">Email Body Rendered Preview</p>
             <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm min-h-[120px] overflow-auto">
-              <div 
-                className="ql-editor p-0 opacity-100 text-slate-900" 
+              <div
+                className="ql-editor p-0 opacity-100 text-slate-900"
                 style={{
                   fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
                   fontSize: '15px',
                   lineHeight: '1.6'
                 }}
-                dangerouslySetInnerHTML={{ __html: item.content }} 
+                dangerouslySetInnerHTML={{ __html: item.content }}
               />
             </div>
           </div>
@@ -173,8 +173,8 @@ const SendMailHistoryPage: React.FC = () => {
       <div className='min-h-[56px] flex justify-between items-center px-2 md:px-0 mb-4 sm:mb-6'>
         <div className='flex items-center gap-2 sm:gap-3'>
           <h1 className='text-xl sm:text-2xl md:text-3xl font-black text-slate-800'>History</h1>
-          <div className="p-1.5 sm:p-2 bg-slate-100 rounded-xl text-slate-600">
-            <History size={18} />
+          <div className="mt-2 rounded-xl text-slate-600">
+            <History size={20} className='animate-bounce' />
           </div>
         </div>
         <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-50 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500 border border-slate-200/50">
@@ -216,8 +216,8 @@ const SendMailHistoryPage: React.FC = () => {
                   key={opt.key}
                   onClick={() => setStatusFilter(opt.key)}
                   className={`px-2.5 sm:px-4 cursor-pointer py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest transition-all whitespace-nowrap ${statusFilter === opt.key
-                      ? 'bg-white text-slate-800 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'
+                    ? 'bg-white text-slate-800 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-700'
                     }`}
                 >
                   {opt.label} <span className="ml-0.5 sm:ml-1 opacity-60">{opt.count}</span>
