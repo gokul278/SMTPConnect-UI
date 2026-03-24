@@ -92,7 +92,7 @@ const DashboardPage: React.FC = () => {
             <div className='mb-6 flex justify-between items-center'>
                 <div>
                     <h1 className='text-2xl md:text-3xl font-black text-gray-800 flex items-center gap-3'>
-                        Dashboard <LayoutDashboard className='text-[#04387a]' />
+                        Dashboard <LayoutDashboard className='text-[#04387a] animate-bounce' />
                     </h1>
                     <p className='text-gray-500 mt-1 font-medium'>Welcome back! Here's what's happening today.</p>
                 </div>

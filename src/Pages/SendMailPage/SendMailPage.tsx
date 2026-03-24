@@ -5,6 +5,7 @@ import SelectInput from '@/Components/Inputs/SelectInput';
 import { Activity, Check, Code, FileCode, Loader2, LockKeyhole, PanelRightOpen, Play, Plus, Send, Settings, ShieldCheck, Trash, Type } from 'lucide-react';
 import React, { useEffect, useState, useMemo } from 'react';
 import AppSidebar from '@/Components/AppSidebar/AppSidebar';
+import LogoIcon from "@/assets/LOGO/ICON-LOGO.png";
 import "react-quill-new/dist/quill.snow.css";
 import { ConfigurationService } from '@/Service/ConfigurationService';
 import type { Configuration } from '@/Interface/ConfigurationInterface';
@@ -134,8 +135,8 @@ const SendMailPage: React.FC = () => {
             <div className='min-h-[56px] flex justify-between items-center px-2 md:px-0 mb-4 sm:mb-6'>
                 <div className='flex items-center gap-2 sm:gap-3'>
                     <h1 className='text-xl sm:text-2xl md:text-3xl font-black text-slate-800'>Campaign</h1>
-                    <div className="p-1.5 sm:p-2 bg-blue-100 rounded-xl text-blue-600">
-                        <Send size={18} />
+                    <div className="flex mt-5 items-center justify-center">
+                        <img src={LogoIcon} alt="Logo" className="h-10 animate-bounce object-contain" />
                     </div>
                 </div>
                 <button
@@ -164,7 +165,7 @@ const SendMailPage: React.FC = () => {
                         <div>
                             <h3 className="font-bold text-slate-800 text-sm mb-1">How exactly does this work?</h3>
                             <p className="text-xs text-slate-500 leading-relaxed">
-                                SMTPConnect allows you to send highly personalized bulk emails using dynamic variables. Follow these steps to set up your first campaign.
+                                MailStitch allows you to send highly personalized bulk emails using dynamic variables. Follow these steps to set up your first campaign.
                             </p>
                         </div>
                     </div>

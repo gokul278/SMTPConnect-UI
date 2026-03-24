@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SigninService } from '@/Service/SigninService';
 import { useAuth } from '../MainRoutes/AuthContent';
+import WhiteLogo from "@/assets/LOGO/WHITE-ICON-LOGO.png";
+import BlueLOGO from "@/assets/LOGO/BLUE_ICON-LOGO.png";
 import { Loader2, Mail } from 'lucide-react';
 
 interface SigninProps {
@@ -63,11 +65,11 @@ const Signin: React.FC<SigninProps> = () => {
                     </div>
 
                     <div className="relative z-10">
-                        <div className='text-3xl font-black text-white flex items-center gap-2 mb-20'>
-                            <div className="p-2 bg-white/20 backdrop-blur-lg rounded-xl">
-                                <Mail size={24} />
+                        <div className='text-3xl font-black text-white flex items-center justify-center gap-2 mb-1'>
+                            <div className="flex items-center justify-center">
+                                <img src={WhiteLogo} alt="Logo" className="h-50 object-contain" />
                             </div>
-                            SMTP <span className="font-light opacity-80">Connect</span>
+                            {/* Mail <span className="font-light opacity-80">Stitch</span> */}
                         </div>
 
                         <h2 className="text-4xl font-black text-white leading-tight mb-6">
@@ -95,11 +97,10 @@ const Signin: React.FC<SigninProps> = () => {
                 {/* Form Side */}
                 <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white/40 backdrop-blur-xl">
                     <div className="mb-10 lg:hidden">
-                        <div className='text-2xl font-black text-slate-800 flex items-center gap-2'>
-                            <div className="p-2 bg-blue-600 rounded-xl text-white">
-                                <Mail size={20} />
+                        <div className='flex items-center justify-center font-black text-slate-800 gap-2'>
+                            <div className="flex items-center justify-center">
+                                <img src={BlueLOGO} alt="Logo" className="h-40 object-contain" />
                             </div>
-                            SMTP Connect
                         </div>
                     </div>
 
@@ -157,7 +158,7 @@ const Signin: React.FC<SigninProps> = () => {
 
                     <div className="mt-10 pt-10 border-t border-slate-200/60 text-center">
                         <p className="text-slate-500 font-medium">
-                            New to SMTP Connect?{" "}
+                            New to MailStitch?{" "}
                             <button
                                 onClick={() => navigate("/signup")}
                                 className="text-blue-600 font-black hover:underline underline-offset-4"

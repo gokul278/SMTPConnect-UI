@@ -13,6 +13,8 @@ import LadingPage from "../LandingPage/LadingPage";
 import ComingSoon from "../LandingPage/ComingSoon";
 import Signin from "../Signin/Signin";
 import Signup from "../Singup/Signup";
+import Contact from "../Contact/Contact";
+import PrivacyPolicy from "../Legal/PrivacyPolicy";
 import DashboardPage from "../DashboardPage/DashboardPage";
 import MasterHeader from "../MasterHeader/MasterHeader";
 import SendMailHistoryPage from "../SendMailHistoryPage/SendMailHistoryPage";
@@ -96,6 +98,8 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
                         <Route path="/commingsoon" index element={<ComingSoon />} />
                         <Route path="/signin" index element={<Signin />} />
                         <Route path="/signup" index element={<Signup />} />
+                        <Route path="/contact" index element={<Contact />} />
+                        <Route path="/privacy" index element={<PrivacyPolicy />} />
                         {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
 
                         <Route
