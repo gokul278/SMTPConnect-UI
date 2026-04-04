@@ -36,29 +36,29 @@ const Contact: React.FC = () => {
                 />
             </header>
 
-            <main className="flex-grow pt-32 pb-20 px-6 md:px-12">
+            <main className="flex-grow pt-44 pb-20 px-6 md:px-12">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Left Column: Info */}
                     <div className="animate-in fade-in slide-in-from-left-8 duration-700">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-widest mb-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#eef3f9] border border-[#dbe4ef] text-[#032e63] text-xs font-black uppercase tracking-widest mb-8">
                             <MessageSquare size={14} /> Get in Touch
                         </div>
                         <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
                             Let's stitch your <br />
-                            <span className="text-blue-600 underline decoration-blue-200 underline-offset-8">next campaign.</span>
+                            <span className="text-[#032e63] underline decoration-[#dbe4ef] underline-offset-8">next campaign.</span>
                         </h1>
                         <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-lg mb-12">
                             Have questions about our flexible SMTP delivery engine or need help setting up your first campaign? We're here to help.
                         </p>
 
                         <div className="space-y-8">
-                            <div className="flex items-center gap-5 p-4 rounded-[2rem] bg-white shadow-premium border border-slate-100 w-fit pr-8 transition-transform hover:scale-[1.02]">
-                                <div className="p-4 bg-blue-600 rounded-2xl text-white shadow-lg shadow-blue-500/30">
+                            <div className="flex items-center gap-5 p-4 rounded-[2rem] bg-white shadow-premium border border-slate-100 w-full max-w-full sm:w-fit pr-8 transition-transform hover:scale-[1.02]">
+                                <div className="p-4 bg-[#032e63] rounded-2xl text-white shadow-lg shadow-[#032e63]/30 shrink-0">
                                     <Mail size={24} />
                                 </div>
-                                <div>
+                                <div className="min-w-0">
                                     <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Email Us</p>
-                                    <p className="text-xl font-bold text-slate-800">mailstitchservice@gmail.com</p>
+                                    <p className="text-base sm:text-xl font-bold text-slate-800 break-all">mailstitchservice@gmail.com</p>
                                 </div>
                             </div>
 
