@@ -85,7 +85,7 @@ const Signup: React.FC<SigninProps> = () => {
             <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 glass-effect rounded-[2.5rem] shadow-premium overflow-hidden border-slate-200/50 animate-in fade-in zoom-in duration-700">
 
                 {/* Visual Side */}
-                <div className="hidden lg:flex flex-col justify-around p-12 bg-blue-600 relative overflow-hidden">
+                <div className="hidden lg:flex flex-col justify-around p-12 bg-[#032e63] relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-20 opacity-10 text-white rotate-12">
                         <Mail size={300} />
                     </div>
@@ -202,7 +202,7 @@ const Signup: React.FC<SigninProps> = () => {
                             Already have an account?{" "}
                             <button
                                 onClick={() => navigate("/signin")}
-                                className="text-blue-600 font-black hover:underline underline-offset-4"
+                                className="text-[#032e63] font-black hover:underline underline-offset-4"
                             >
                                 Sign In
                             </button>
