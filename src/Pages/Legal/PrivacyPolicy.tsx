@@ -22,7 +22,7 @@ const PrivacyPolicy: React.FC = () => {
                 />
             </header>
 
-            <main className="flex-grow pt-32 pb-20 px-6 md:px-12">
+            <main className="flex-grow pt-44 pb-20 px-6 md:px-12">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-6">
@@ -96,26 +96,56 @@ const PrivacyPolicy: React.FC = () => {
                             </div>
                         </section>
 
-                        {/* 5. Disclosure */}
+                        {/* 5. Data Retention */}
                         <section className="space-y-4">
                             <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
-                                <span className="text-blue-600">05.</span> Third-Party Disclosure
+                                <span className="text-blue-600">05.</span> Data Retention
                             </h2>
                             <p className="text-slate-600 font-medium leading-relaxed">
-                                We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website, so long as those parties agree to keep this information confidential.
+                                We retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies. SMTP configuration data is stored until you choose to delete your account or update your settings.
                             </p>
                         </section>
 
-                        {/* 6. Contact */}
+                        {/* 6. GDPR & CCPA Compliance */}
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
+                                <span className="text-blue-600">06.</span> Global Compliance (GDPR & CCPA)
+                            </h2>
+                            <div className="space-y-4">
+                                <p className="text-slate-600 font-medium leading-relaxed">
+                                    Depending on your location, you may have the following data protection rights:
+                                </p>
+                                <ul className="list-disc list-inside text-slate-600 font-medium space-y-2 ml-4">
+                                    <li><strong>The right to access:</strong> You can request copies of your personal data.</li>
+                                    <li><strong>The right to rectification:</strong> You can request that we correct any information you believe is inaccurate.</li>
+                                    <li><strong>The right to erasure:</strong> You can request that we erase your personal data, under certain conditions.</li>
+                                    <li><strong>The right to restrict processing:</strong> You can request that we restrict the processing of your personal data.</li>
+                                    <li><strong>The right to object to processing:</strong> You can object to our processing of your personal data.</li>
+                                    <li><strong>The right to data portability:</strong> You can request that we transfer the data that we have collected to another organization.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        {/* 7. Children's Privacy */}
+                        <section className="space-y-4">
+                            <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
+                                <span className="text-blue-600">07.</span> Children's Privacy
+                            </h2>
+                            <p className="text-slate-600 font-medium leading-relaxed">
+                                Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.
+                            </p>
+                        </section>
+
+                        {/* 8. Contact */}
                         <section className="pt-12 border-t border-slate-100">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                                 <div>
                                     <h3 className="text-xl font-black text-slate-900 mb-2 flex items-center gap-2"><Bell size={20}/> Privacy Inquiries</h3>
-                                    <p className="text-slate-500 font-medium">Submit your data request or privacy concerns.</p>
+                                    <p className="text-slate-500 font-medium">For any questions regarding this Privacy Policy, please contact our Data Protection Officer.</p>
                                 </div>
-                                <div className="px-8 py-4 bg-slate-900 text-white rounded-[2rem] font-bold text-sm shadow-xl cursor-pointer hover:scale-105 transition-transform">
+                                <a href="mailto:mailstitchservice@gmail.com" className="px-4 sm:px-8 py-4 bg-slate-900 text-white rounded-[2rem] font-bold text-xs sm:text-sm shadow-xl hover:scale-105 transition-transform break-all text-center">
                                     mailstitchservice@gmail.com
-                                </div>
+                                </a>
                             </div>
                         </section>
                     </div>

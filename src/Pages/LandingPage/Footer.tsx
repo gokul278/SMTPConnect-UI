@@ -11,6 +11,7 @@ export default function Footer(): JSX.Element {
                 <div className="flex gap-6 mb-4">
                     <a href="/contact" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Contact Us</a>
                     <a href="/privacy" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="/terms" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Terms & Conditions</a>
                     <a href="/" className="text-xs font-bold text-slate-300 hover:text-white transition-colors">Home</a>
                 </div>
                 <p className="text-sm text-slate-300">
