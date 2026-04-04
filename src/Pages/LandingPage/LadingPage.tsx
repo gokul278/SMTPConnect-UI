@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import LandingImg from "@/assets/Images/LandingImg.png"
 import EmailServiceImg from "@/assets/Images/EmailService.png";
 import FullLogo from "@/assets/LOGO/FULL-LOGO.png";
@@ -18,11 +19,46 @@ import {
     Activity,
     Zap,
     Globe,
-    Cpu
+    Cpu,
+    Plus,
+    Minus
 } from 'lucide-react';
 import Button from '../../Components/Button/Button';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
+
+const FAQItem: React.FC<{ q: string, a: string }> = ({ q, a }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2.5rem] border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-premium transition-all overflow-hidden"
+        >
+            <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full p-8 flex items-center justify-between text-left group"
+            >
+                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#032e63] transition-colors">{q}</h4>
+                <div className={`p-2 rounded-full ${isOpen ? "bg-[#032e63] text-white" : "bg-slate-100 text-slate-400"} transition-colors`}>
+                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                </div>
+            </button>
+            <motion.div 
+                initial={false}
+                animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+            >
+                <div className="px-8 pb-8 text-slate-500 font-medium leading-relaxed">
+                    {a}
+                </div>
+            </motion.div>
+        </motion.div>
+    );
+};
 
 const LadingPage: React.FC = () => {
     const navigate = useNavigate();
@@ -41,7 +77,7 @@ const LadingPage: React.FC = () => {
             Icon: <MailPlus size={28} />,
             label: "Bring Your Own SMTP",
             description: "Connect Gmail, Outlook, or custom servers with zero friction.",
-            color: "blue"
+            color: "slate"
         },
         {
             Icon: <Settings2 size={28} />,
@@ -67,8 +103,8 @@ const LadingPage: React.FC = () => {
         {
             title: "Mention Editor",
             description: "Personalize at scale with live @mentions and dynamic variables.",
-            icon: <SquarePen className="text-blue-600" />,
-            className: "md:col-span-2 md:row-span-2 bg-blue-50/50",
+            icon: <SquarePen className="text-[#032e63]" />,
+            className: "md:col-span-2 md:row-span-2 bg-[#eef3f9]/50",
             image: EmailServiceImg
         },
         {
@@ -98,7 +134,7 @@ const LadingPage: React.FC = () => {
     ];
 
     return (
-        <div className="w-full bg-slate-50 min-h-screen selection:bg-blue-100 selection:text-blue-900 font-sans">
+        <div className="w-full bg-slate-50 min-h-screen selection:bg-[#eef3f9] selection:text-[#032e63] font-sans">
             {/* Trendy Header */}
             <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 transition-all duration-500 z-50 ${scrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm" : "py-6 bg-transparent"}`}>
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
@@ -106,30 +142,35 @@ const LadingPage: React.FC = () => {
                 </div>
                 
                 <nav className="hidden lg:flex items-center gap-10">
-                    <a 
-                        href="#features"
-                        className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-widest"
+                    <button 
+                        onClick={() => navigate("/features")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
                     >
                         Features
-                    </a>
-                    <a 
-                        href="#how-it-works"
-                        className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-widest"
+                    </button>
+                    <button 
+                        onClick={() => navigate("/how-it-works")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
                     >
                         How it Works
-                    </a>
-                    <a href="/contact" className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-widest">Contact</a>
+                    </button>
+                    <button 
+                        onClick={() => navigate("/contact")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        Contact
+                    </button>
                 </nav>
 
                 <div className='flex gap-4 items-center'>
                     <button
                         onClick={() => navigate("/signin")}
-                        className="text-sm font-black text-slate-900 hover:text-blue-600 transition-colors hidden sm:block px-4 py-2"
+                        className="text-sm font-black text-slate-900 hover:text-[#032e63] transition-colors hidden sm:block px-4 py-2"
                     >
                         Login
                     </button>
                     <Button
-                        className='px-6 py-3 font-black text-sm shadow-xl shadow-blue-500/20 rounded-2xl'
+                        className='px-6 py-3 font-black text-sm shadow-xl shadow-blue-500/20 rounded-2xl bg-[#032e63] hover:bg-[#04387a]'
                         label="Get Started"
                         onClick={() => navigate("/signup")}
                         variant="primary"
@@ -141,15 +182,15 @@ const LadingPage: React.FC = () => {
             <section className="relative pt-48 pb-32 px-6 md:px-12 overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-10 shadow-sm">
-                        <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
+                        <span className="flex h-2 w-2 rounded-full bg-[#032e63] animate-pulse"></span>
                         V1.2 Now Live: The Custom SMTP Engine
                     </div>
                     
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 tracking-tight leading-[0.9] mb-10">
-                        Mail <span className="text-blue-600 italic">Stitched </span> <br />
+                        Mail <span className="text-[#032e63] italic">Stitched </span> <br />
                         <span className="relative">
                             By You.
-                            <svg className="absolute -bottom-2 left-0 w-full h-3 text-blue-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#dbe4ef] -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                                 <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="8" />
                             </svg>
                         </span>
@@ -161,7 +202,7 @@ const LadingPage: React.FC = () => {
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center mb-24">
                         <Button
-                            className="px-10 py-5 text-lg font-black shadow-2xl shadow-blue-500/40 rounded-[2rem]"
+                            className="px-10 py-5 text-lg font-black shadow-2xl shadow-[#032e63]/40 rounded-[2rem] bg-[#032e63] hover:bg-[#04387a]"
                             label="Deploy Your First Campaign"
                             onClick={() => navigate("/signup")}
                         />
@@ -175,7 +216,7 @@ const LadingPage: React.FC = () => {
 
                     {/* Feature Visualization */}
                     <div className="relative max-w-6xl mx-auto">
-                        <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-[100px] -z-10 rounded-full"></div>
+                        <div className="absolute -inset-10 bg-gradient-to-r from-[#032e63]/20 to-indigo-500/20 blur-[100px] -z-10 rounded-full"></div>
                         <div className="bg-white p-2 rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden transform hover:-rotate-1 transition-transform duration-700">
                             <img src={LandingImg} alt="Dashboard Preview" className="w-full h-auto rounded-[2.5rem]" />
                         </div>
@@ -204,7 +245,7 @@ const LadingPage: React.FC = () => {
                     <div className="flex items-center gap-2 font-black text-2xl tracking-tighter"><Globe /> GLOBAL</div>
                     <div className="flex items-center gap-2 font-black text-2xl tracking-tighter"><Cpu /> ENGINE.X</div>
                     <div className="flex items-center gap-2 font-black text-2xl tracking-tighter"><Zap /> RAPID</div>
-                    <div className="flex items-center gap-2 font-black text-2xl tracking-tighter text-blue-600"><ShieldCheck /> SECURE</div>
+                    <div className="flex items-center gap-2 font-black text-2xl tracking-tighter text-[#032e63]"><ShieldCheck /> SECURE</div>
                 </div>
             </div>
 
@@ -219,7 +260,7 @@ const LadingPage: React.FC = () => {
                             </p>
                         </div>
                         <div className="flex gap-4">
-                            <div className="p-12 bg-blue-600 rounded-[3rem] text-white flex flex-col justify-end min-h-[240px] shadow-xl shadow-blue-500/20">
+                            <div className="p-12 bg-[#032e63] rounded-[3rem] text-white flex flex-col justify-end min-h-[240px] shadow-xl shadow-[#032e63]/20">
                                 <p className="text-6xl font-black mb-2">100%</p>
                                 <p className="text-sm font-bold uppercase tracking-widest opacity-80">Data Ownership</p>
                             </div>
@@ -252,7 +293,7 @@ const LadingPage: React.FC = () => {
                                 <h3 className="text-3xl font-black text-white mb-2">Ready to switch?</h3>
                                 <p className="text-slate-400 font-medium">Join 500+ developers today.</p>
                             </div>
-                            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                            <div className="w-16 h-16 bg-[#032e63] rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                                 <ChevronRight size={32} />
                             </div>
                         </div>
@@ -286,7 +327,7 @@ const LadingPage: React.FC = () => {
             {/* How it Works Module */}
             <section id="how-it-works" className="py-32 px-6 md:px-12 bg-slate-900 rounded-t-[5rem]">
                 <div className="max-w-7xl mx-auto text-center mb-24">
-                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8">Four steps to <span className="text-blue-500 italic">launch.</span></h2>
+                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8">Four steps to <span className="text-[#eef3f9] italic text-opacity-80">launch.</span></h2>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto font-medium">From custom server configuration to your first successful dispatch in under 5 minutes.</p>
                 </div>
 
@@ -298,13 +339,50 @@ const LadingPage: React.FC = () => {
                         { title: "Dispatch", desc: "personalized mail to thousands.", icon: <Send /> }
                     ].map((step, idx) => (
                         <div key={idx} className="p-8 bg-white/5 border border-white/10 rounded-[3rem] text-center hover:bg-white/10 transition-all group">
-                            <div className="w-16 h-16 bg-blue-600/20 text-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-8 scale-110 group-hover:scale-125 transition-transform duration-500">
+                            <div className="w-16 h-16 bg-[#032e63]/20 text-[#eef3f9] rounded-3xl flex items-center justify-center mx-auto mb-8 scale-110 group-hover:scale-125 transition-transform duration-500">
                                 {React.cloneElement(step.icon as React.ReactElement<any>, { size: 32 })}
                             </div>
                             <h4 className="text-white text-2xl font-black mb-3">{step.title}</h4>
                             <p className="text-slate-400 text-sm font-medium">{step.desc}</p>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section id="faq" className="py-32 px-6 md:px-12 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 italic">Got Questions?</h2>
+                        <p className="text-xl text-slate-500 font-medium">Everything you need to know about MailStitch.</p>
+                    </div>
+
+                    <div className="space-y-6">
+                        {[
+                            {
+                                q: "What exactly is MailStitch?",
+                                a: "MailStitch is a self-hosted email dispatch interface that allows you to connect your own SMTP servers and send personalized bulk campaigns with total control and privacy."
+                            },
+                            {
+                                q: "Can I use my own SMTP/Gmail?",
+                                a: "Yes! That's the core of MailStitch. You can bring any SMTP provider including Gmail, Outlook, Amazon SES, or your own private server."
+                            },
+                            {
+                                q: "How is my data secured?",
+                                a: "We use high-grade AES-256 encryption to protect your SMTP credentials. Your recipient lists and campaign data never leave the platform without your consent."
+                            },
+                            {
+                                q: "Is there a limit on how many emails I can send?",
+                                a: "MailStitch doesn't impose sending limits. Your limits are determined solely by your SMTP provider's policies and capacity."
+                            },
+                            {
+                                q: "Do I need technical skills to use it?",
+                                a: "While having some SMTP knowledge helps, we've designed our interface to be intuitive for everyone. If you can fill out a form, you can send a campaign."
+                            }
+                        ].map((faq, idx) => (
+                            <FAQItem key={idx} q={faq.q} a={faq.a} />
+                        ))}
+                    </div>
                 </div>
             </section>
 

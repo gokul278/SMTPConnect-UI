@@ -10,6 +10,8 @@ import RoleProtectedRoute from "./RoleProtectedRoute";
 import ScrollToTop from "../../lib/ScrollToTop";
 import { AuthProvider } from "./AuthContent";
 import LadingPage from "../LandingPage/LadingPage";
+import Features from "../Features/Features";
+import HowItWorks from "../HowItWorks/HowItWorks";
 import ComingSoon from "../LandingPage/ComingSoon";
 import Signin from "../Signin/Signin";
 import Signup from "../Singup/Signup";
@@ -102,6 +104,8 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
                         <Route path="/contact" index element={<Contact />} />
                         <Route path="/privacy" index element={<PrivacyPolicy />} />
                         <Route path="/terms" index element={<TermsAndConditions />} />
+                        <Route path="/features" index element={<Features />} />
+                        <Route path="/how-it-works" index element={<HowItWorks />} />
                         {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
 
                         <Route

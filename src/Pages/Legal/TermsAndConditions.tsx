@@ -25,7 +25,7 @@ const TermsAndConditions: React.FC = () => {
             <main className="flex-grow pt-44 pb-20 px-6 md:px-12">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] font-black uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#eef3f9] border border-[#dbe4ef] text-[#032e63] text-[10px] font-black uppercase tracking-widest mb-6">
                             <FileText size={14} /> Service Agreement
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-tight mb-4">
@@ -36,7 +36,7 @@ const TermsAndConditions: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="glass-effect p-8 md:p-16 rounded-[4rem] border border-white shadow-2xl shadow-indigo-900/5 space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                    <div className="glass-effect p-8 md:p-16 rounded-[4rem] border border-white shadow-2xl shadow-[#032e63]/5 space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                         
                         {/* 1. Introduction */}
                         <section className="space-y-4">
@@ -55,12 +55,12 @@ const TermsAndConditions: React.FC = () => {
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
                                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                                    <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-4"><UserCheck size={24}/></div>
+                                    <div className="w-12 h-12 bg-[#eef3f9] text-[#032e63] rounded-2xl flex items-center justify-center mb-4"><UserCheck size={24}/></div>
                                     <h4 className="font-black text-slate-900 mb-2">Responsibility</h4>
                                     <p className="text-sm text-slate-500 font-medium">You are responsible for safeguarding your password and for all activities that occur under your account.</p>
                                 </div>
                                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-4"><History size={24}/></div>
+                                    <div className="w-12 h-12 bg-[#eef3f9] text-[#032e63] rounded-2xl flex items-center justify-center mb-4"><History size={24}/></div>
                                     <h4 className="font-black text-slate-900 mb-2">Accuracy</h4>
                                     <p className="text-sm text-slate-500 font-medium">You must provide us with information that is accurate, complete, and current at all times.</p>
                                 </div>

@@ -25,7 +25,7 @@ const PrivacyPolicy: React.FC = () => {
             <main className="flex-grow pt-44 pb-20 px-6 md:px-12">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#eef3f9] border border-[#dbe4ef] text-[#032e63] text-[10px] font-black uppercase tracking-widest mb-6">
                             <ShieldCheck size={14} /> Global Privacy Standard
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-tight mb-4">
@@ -51,16 +51,16 @@ const PrivacyPolicy: React.FC = () => {
                         {/* 2. Data Collection */}
                         <section className="space-y-6">
                             <h2 className="text-3xl font-black text-slate-900 flex items-center gap-3">
-                                <span className="text-blue-600">02.</span> Information We Collect
+                                <span className="text-[#032e63]">02.</span> Information We Collect
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
                                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-4"><Database size={24}/></div>
+                                    <div className="w-12 h-12 bg-[#032e63] text-white rounded-2xl flex items-center justify-center mb-4"><Database size={24}/></div>
                                     <h4 className="font-black text-slate-900 mb-2">Service Data</h4>
                                     <p className="text-sm text-slate-500 font-medium">SMTP credentials, configuration port details, and delivery logs required to route your emails.</p>
                                 </div>
                                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                                    <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-4"><Eye size={24}/></div>
+                                    <div className="w-12 h-12 bg-[#032e63] text-white rounded-2xl flex items-center justify-center mb-4"><Eye size={24}/></div>
                                     <h4 className="font-black text-slate-900 mb-2">Account Data</h4>
                                     <p className="text-sm text-slate-500 font-medium">Your name, email address, and profile preferences used for authentication and service updates.</p>
                                 </div>
@@ -75,8 +75,8 @@ const PrivacyPolicy: React.FC = () => {
                             <p className="text-slate-600 font-medium leading-relaxed">
                                 We use cookies and similar tracking technologies to track the activity on our Service and store certain information.
                             </p>
-                            <div className="bg-blue-50/50 p-6 rounded-3xl border border-blue-100 space-y-4">
-                                <p className="text-sm text-blue-800 font-bold flex items-center gap-2"><Globe size={16}/> Google AdSense Integration</p>
+                            <div className="bg-[#eef3f9]/50 p-6 rounded-3xl border border-[#dbe4ef] space-y-4">
+                                <p className="text-sm text-[#032e63] font-bold flex items-center gap-2"><Globe size={16}/> Google AdSense Integration</p>
                                 <p className="text-sm text-slate-600 font-medium">
                                     Google, as a third-party vendor, uses cookies to serve ads on our Service. Google's use of the advertising cookie enables it and its partners to serve ads to our users based on their visit to our Service or other websites on the Internet. You may opt out of personalized advertising by visiting the Google Ads Settings page.
                                 </p>
