@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../LandingPage/Footer';
 import FullLogo from "@/assets/LOGO/FULL-LOGO.png";
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +11,11 @@ const PrivacyPolicy: React.FC = () => {
 
     return (
         <div className="w-full bg-mesh min-h-screen flex flex-col font-sans">
+            <Helmet>
+                <title>Privacy Policy – MailStitch Data Security Commitment</title>
+                <meta name="description" content="Read MailStitch's Privacy Policy. We are committed to your data sovereignty, utilizing high-grade encryption and transparent data processing practices." />
+                <link rel="canonical" href="https://www.mailstitch.online/privacy" />
+            </Helmet>
             <header className="fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 py-4 glass-effect z-50">
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate("/")}>
                     <img src={FullLogo} alt="MailStitch Logo" className="h-12 w-auto object-contain" />
