@@ -5,6 +5,7 @@ import TextInput from '../../Components/Inputs/TextInput';
 import Footer from '../LandingPage/Footer';
 import FullLogo from "@/assets/LOGO/FULL-LOGO.png";
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Contact: React.FC = () => {
     const navigate = useNavigate();
@@ -24,6 +25,11 @@ const Contact: React.FC = () => {
 
     return (
         <div className="w-full bg-mesh min-h-screen flex flex-col">
+            <Helmet>
+                <title>Contact MailStitch – Support & Sales Inquiry</title>
+                <meta name="description" content="Get in touch with the MailStitch team. Have questions about our SMTP engine or need help with your bulk campaigns? We're here to help." />
+                <link rel="canonical" href="https://www.mailstitch.online/contact" />
+            </Helmet>
             <header className="fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 py-4 glass-effect z-50">
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate("/")}>
                     <img src={FullLogo} alt="MailStitch Logo" className="h-12 w-auto object-contain" />

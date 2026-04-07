@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Navigate,
-    // Navigate,
     Route,
     BrowserRouter as Router,
     Routes,
@@ -12,7 +11,8 @@ import { AuthProvider } from "./AuthContent";
 import LadingPage from "../LandingPage/LadingPage";
 import Features from "../Features/Features";
 import HowItWorks from "../HowItWorks/HowItWorks";
-import ComingSoon from "../LandingPage/ComingSoon";
+import About from "../About/About";
+import Guides from "../Guides/Guides";
 import Signin from "../Signin/Signin";
 import Signup from "../Singup/Signup";
 import Contact from "../Contact/Contact";
@@ -98,15 +98,15 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
                     <ToastContainer position="top-right" autoClose={3000} />
                     <Routes>
                         <Route index element={<LadingPage />} />
-                        <Route path="/commingsoon" index element={<ComingSoon />} />
-                        <Route path="/signin" index element={<Signin />} />
-                        <Route path="/signup" index element={<Signup />} />
-                        <Route path="/contact" index element={<Contact />} />
-                        <Route path="/privacy" index element={<PrivacyPolicy />} />
-                        <Route path="/terms" index element={<TermsAndConditions />} />
-                        <Route path="/features" index element={<Features />} />
-                        <Route path="/how-it-works" index element={<HowItWorks />} />
-                        {/* <Route path="/unauthorized" index element={<Unauthorized />} /> */}
+                        <Route path="/about" element={<About />} />
+                        <Route path="/guides" element={<Guides />} />
+                        <Route path="/signin" element={<Signin />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/privacy" element={<PrivacyPolicy />} />
+                        <Route path="/terms" element={<TermsAndConditions />} />
+                        <Route path="/features" element={<Features />} />
+                        <Route path="/how-it-works" element={<HowItWorks />} />
 
                         <Route
                             path="/user"
@@ -125,4 +125,4 @@ const MainRoutes: React.FC<MainRoutesProps> = () => {
     );
 };
 
-export default MainRoutes;
+export default MainRoutes;

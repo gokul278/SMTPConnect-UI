@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
     Unplug,
     LayoutTemplate, 
@@ -26,6 +27,11 @@ const HowItWorks: React.FC = () => {
 
     return (
         <div className="w-full bg-mesh min-h-screen flex flex-col font-sans selection:bg-[#032e63] selection:text-white">
+            <Helmet>
+                <title>How MailStitch Works – 4 Steps to Custom SMTP Bulk Email</title>
+                <meta name="description" content="Learn how to connect your SMTP, import recipients, design templates with @mentions, and launch your first personalized campaign in under 5 minutes." />
+                <link rel="canonical" href="https://www.mailstitch.online/how-it-works" />
+            </Helmet>
             <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 transition-all duration-500 z-50 ${scrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm" : "py-6 bg-transparent"}`}>
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate("/")}>
                     <img src={FullLogo} alt="MailStitch Logo" className="h-12 w-auto object-contain" />
@@ -45,6 +51,18 @@ const HowItWorks: React.FC = () => {
                         How it Works
                     </button>
                     <button 
+                        onClick={() => navigate("/guides")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        Guides
+                    </button>
+                    <button 
+                        onClick={() => navigate("/about")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        About
+                    </button>
+                    <button 
                         onClick={() => navigate("/contact")}
                         className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
                     >
@@ -60,7 +78,7 @@ const HowItWorks: React.FC = () => {
                         Login
                     </button>
                     <Button 
-                        label="Join the Beta" 
+                        label="Create Your Account" 
                         className="bg-[#032e63] hover:bg-[#04387a] py-3 px-6 text-sm"
                         onClick={() => navigate("/signup")}
                     />
