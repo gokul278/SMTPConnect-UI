@@ -27,6 +27,8 @@ import Button from '../../Components/Button/Button';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 const FAQItem: React.FC<{ q: string, a: string }> = ({ q, a }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -135,6 +137,11 @@ const LadingPage: React.FC = () => {
 
     return (
         <div className="w-full bg-slate-50 min-h-screen selection:bg-[#eef3f9] selection:text-[#032e63] font-sans">
+            <Helmet>
+                <title>MailStitch – Professional Custom SMTP Bulk Email Engine</title>
+                <meta name="description" content="Send personalized bulk campaigns through Gmail, Outlook, or your own server. Zero platform branding, total data sovereignty." />
+                <link rel="canonical" href="https://www.mailstitch.online/" />
+            </Helmet>
             {/* Trendy Header */}
             <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 transition-all duration-500 z-50 ${scrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm" : "py-6 bg-transparent"}`}>
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
@@ -153,6 +160,18 @@ const LadingPage: React.FC = () => {
                         className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
                     >
                         How it Works
+                    </button>
+                    <button 
+                        onClick={() => navigate("/guides")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        Guides
+                    </button>
+                    <button 
+                        onClick={() => navigate("/about")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        About
                     </button>
                     <button 
                         onClick={() => navigate("/contact")}

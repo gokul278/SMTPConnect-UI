@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import {
     MailPlus,
     Settings2,
@@ -29,37 +30,37 @@ const Features: React.FC = () => {
     const mainFeatures = [
         {
             title: "Bring Your Own SMTP",
-            description: "Total freedom to connect any SMTP provider—Gmail, Outlook, Amazon SES, or your own private server. No more vendor lock-in.",
+            description: "Experience total delivery freedom by connecting any SMTP provider of your choice. Whether you use Gmail's global infrastructure, Outlook's professional servers, Amazon SES's scalability, or your own private enterprise server, MailStitch provides the seamless interface to bridge the gap. No more vendor lock-in or proprietary platform taxes—you choose the pipe, we provide the performance.",
             icon: <MailPlus className="text-blue-600" />,
             color: "bg-blue-50"
         },
         {
             title: "Mention Editor",
-            description: "Personalize every single email with our advanced @mention system. Inject recipient names, custom data, or dynamic variables effortlessly.",
+            description: "Personalize every single interaction with our advanced @mention system. Inject recipient names, custom data fields, or dynamic variables effortlessly into your templates. Our live-preview editor ensures that your personalization looks perfect before a single byte is sent. Scale your outreach while maintaining the human touch that drives engagement and inbox success.",
             icon: <SquarePen className="text-indigo-600" />,
             color: "bg-indigo-50"
         },
         {
             title: "Full Header Control",
-            description: "Professional-grade control over your email headers. Customize From, Reply-To, CC, and BCC fields for every campaign.",
+            description: "Gain professional-grade control over your email headers to ensure maximum deliverability and brand consistency. Customize 'From' names, 'Reply-To' addresses, and manage CC/BCC fields for every unique campaign. This level of granular control is essential for managing multiple brands or high-stakes communications where every detail matters.",
             icon: <Settings2 className="text-emerald-600" />,
             color: "bg-emerald-50"
         },
         {
             title: "Real-time Analytics",
-            description: "Detailed delivery logs and status tracking. Know exactly when your emails are delivered, opened, or if they bounce.",
+            description: "Stay informed with detailed delivery logs and status tracking. Our real-time analytics engine monitors every dispatch, providing you with instant feedback on delivery success, open rates, and bounce notifications. Understanding your campaign performance in real-time allows you to pivot strategies and maintain a healthy sender reputation across all your providers.",
             icon: <Activity className="text-rose-600" />,
             color: "bg-rose-50"
         },
         {
             title: "Data Sovereignty",
-            description: "Your data stays with you. We use AES-256 encryption for all stored credentials, and you own 100% of your recipient lists.",
+            description: "Your data is your most valuable asset, and we treat it that way. MailStitch is built on the principle of data sovereignty. We utilize high-grade AES-256 encryption for all stored SMTP credentials and ensure that your recipient lists never leave the platform without your explicit consent. You own 100% of your data, always.",
             icon: <ShieldCheck className="text-amber-600" />,
             color: "bg-amber-50"
         },
         {
             title: "Bulk Precision",
-            description: "Engineered for high-volume dispatch. Send thousands of emails with consistent performance and zero platform branding.",
+            description: "Engineered for high-volume dispatch without compromising on quality. MailStitch handles the heavy lifting of mass mailing while ensuring that every email is delivered with cryptographic precision. Send thousands of emails through your own infrastructure with zero platform branding, ensuring your message remains the sole focus of your recipients.",
             icon: <Zap className="text-violet-600" />,
             color: "bg-violet-50"
         }
@@ -85,6 +86,11 @@ const Features: React.FC = () => {
 
     return (
         <div className="w-full bg-mesh min-h-screen flex flex-col font-sans selection:bg-[#032e63] selection:text-white">
+            <Helmet>
+                <title>MailStitch Features – Custom SMTP Bulk Email Tools</title>
+                <meta name="description" content="Explore MailStitch's powerful features: Mention Editor, Full SMTP Control, High-Grade Encryption, and Live Delivery Analytics." />
+                <link rel="canonical" href="https://www.mailstitch.online/features" />
+            </Helmet>
             <header className={`fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 transition-all duration-500 z-50 ${scrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm" : "py-6 bg-transparent"}`}>
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate("/")}>
                     <img src={FullLogo} alt="MailStitch Logo" className="h-12 w-auto object-contain" />
@@ -102,6 +108,18 @@ const Features: React.FC = () => {
                         className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
                     >
                         How it Works
+                    </button>
+                    <button
+                        onClick={() => navigate("/guides")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        Guides
+                    </button>
+                    <button
+                        onClick={() => navigate("/about")}
+                        className="text-sm font-bold text-slate-500 hover:text-[#032e63] transition-colors uppercase tracking-widest cursor-pointer"
+                    >
+                        About
                     </button>
                     <button
                         onClick={() => navigate("/contact")}

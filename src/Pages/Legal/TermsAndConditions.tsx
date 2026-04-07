@@ -4,12 +4,18 @@ import FullLogo from "@/assets/LOGO/FULL-LOGO.png";
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import { FileText, UserCheck, Ban, AlertOctagon, History, Mail } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const TermsAndConditions: React.FC = () => {
     const navigate = useNavigate();
 
     return (
         <div className="w-full bg-mesh min-h-screen flex flex-col font-sans">
+            <Helmet>
+                <title>Terms and Conditions – MailStitch Service Agreement</title>
+                <meta name="description" content="View the Terms and Conditions for using MailStitch. Understand our service parameters, user responsibilities, and our commitment to a secure bulk mailing environment." />
+                <link rel="canonical" href="https://www.mailstitch.online/terms" />
+            </Helmet>
             <header className="fixed top-0 left-0 right-0 flex items-center justify-between w-full px-6 md:px-12 py-4 glass-effect z-50">
                 <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate("/")}>
                     <img src={FullLogo} alt="MailStitch Logo" className="h-12 w-auto object-contain" />

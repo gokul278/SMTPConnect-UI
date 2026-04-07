@@ -12,6 +12,8 @@ export default function Footer(): JSX.Element {
                     <a href="/" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Home</a>
                     <a href="/features" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Features</a>
                     <a href="/how-it-works" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">How it Works</a>
+                    <a href="/guides" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Guides</a>
+                    <a href="/about" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">About</a>
                     <a href="/contact" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact</a>
                     <a href="/privacy" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Privacy Policy</a>
                     <a href="/terms" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Terms of Service</a>
